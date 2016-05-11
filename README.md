@@ -2,7 +2,11 @@
 Middleware to block redux actions based on provided criteria.
 
 ## What's it for?
-Redux Cut is middleware for the [Redux framework](https://github.com/reactjs/redux) which enables you to block certain actions from firing, based on certain criteria. The middleware intercepts these actions and instead dispatches a "blocked action" action which you can listen for in your reducer. The new action includes the original action as a payload. You can use this to help with the implementation of protected functionality, permissions, or simply as a way to group this sort of functionality which you may have had in your reducers.
+Redux Cut is middleware for the [Redux framework](https://github.com/reactjs/redux) which enables you to block certain actions from firing, based on certain criteria.
+
+The middleware intercepts these actions and instead dispatches a "blocked action" action which you can listen for in your reducer using `isBlockedAction`.
+
+The new action includes the original action as its payload. You can use this to help with the implementation of protected functionality, permissions, or simply as a way to group this sort of functionality which you may have had in your reducers.
 
 ### Can't I do this kind of thing with [insert some other library]?
 Definitely. Redux Cut just provides a certain way of going about things that you may prefer to other methods.
