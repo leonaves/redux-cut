@@ -1,5 +1,5 @@
 import chai from 'chai';
-import cutMiddleware, { isBlockedAction, combineCriteria } from '../index';
+import cutMiddleware, { isBlockedAction, combineCriteria } from '../src/index';
 
 describe('cut middleware', () => {
     const doDispatch = () => {};

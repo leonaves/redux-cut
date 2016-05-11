@@ -48,7 +48,7 @@ const cut = permitted => store => next => action => {
  * @returns {Function} A criteria function that invokes every function inside the
  * passed object and returns false if any child criteria fail.
  */
-export function combineCriteria(criteria) {
+function combineCriteria(criteria) {
     var criteriaKeys = Object.keys(criteria);
     var finalCriteria = {};
     for (var i = 0; i < criteriaKeys.length; i++) {
