@@ -37,7 +37,9 @@ const permitActions = (state, action) => {
         case 'DELETE_ALL_CUSTOMER_INFORMATION':
             return 'manager' === state.currentUser.role;
         case 'INSERT_NEW_RECORD':
-            return state.records.entries.size() <= state.records.maxSize;
+            if (state.records.entries.size() >= state.records.maxSize) {
+                return false;
+            }
     }
 };
 
