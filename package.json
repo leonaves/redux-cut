@@ -2,11 +2,11 @@
   "name": "redux-cut",
   "version": "1.0.2",
   "description": "Middleware to block redux actions based on provided criteria.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --compilers js:babel-register",
     "clean": "rimraf dist",
-    "build": "babel modules --out-dir dist",
+    "build": "babel src --out-dir dist",
     "prepublish": "npm run clean && npm run test && npm run build"
   },
   "repository": {
