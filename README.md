@@ -18,7 +18,7 @@ npm install redux-cut --save
 Import it:
 
 ```js
-import cut from './redux-cut'; //or your module import syntax of choice
+import cut from 'redux-cut'; //or your module import syntax of choice
 ```
 
 Then apply it to your store like so:
