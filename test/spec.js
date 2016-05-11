@@ -1,5 +1,5 @@
 import chai from 'chai';
-import cutMiddleware, { isBlockedAction } from '../index';
+import cutMiddleware, { isBlockedAction, combineCriteria } from '../index';
 
 describe('cut middleware', () => {
     const doDispatch = () => {};
@@ -76,6 +76,66 @@ describe('cut middleware', () => {
 
                 actionHandler(actionObj);
             });
+        });
+    });
+});
+
+describe('combineCriteria', () => {
+    it('must return a new function when provided with an object of functions', () => {
+        let criteriaFunctions = {
+            truthy: () => true,
+            falsey: () => false
+        };
+
+        let permitted = combineCriteria(criteriaFunctions);
+        chai.assert.isFunction(permitted);
+    });
+
+    describe('combined function', () => {
+        it('must return false if any of the child functions return false', () => {
+            let criteriaFunctions = {
+                truthy: () => true,
+                falsey: () => false
+            };
+
+            let permitted = combineCriteria(criteriaFunctions);
+            let isPermitted = permitted();
+
+            chai.assert.strictEqual(isPermitted, false);
+
+            criteriaFunctions = {
+                falsey_one: () => false,
+                falsey_two: () => false
+            };
+
+            permitted = combineCriteria(criteriaFunctions);
+            isPermitted = permitted();
+
+            chai.assert.strictEqual(isPermitted, false);
+        });
+
+        it('must return true if all of the child functions return true', () => {
+            let criteriaFunctions = {
+                truthy_one: () => true,
+                truthy_two: () => true
+            };
+
+            let permitted = combineCriteria(criteriaFunctions);
+            let isPermitted = permitted();
+
+            chai.assert.strictEqual(isPermitted, true);
+        });
+
+        it('must return undefined if all of the child functions return undefined', () => {
+            let criteriaFunctions = {
+                undefined_one: () => undefined,
+                undefined_two: () => undefined
+            };
+
+            let permitted = combineCriteria(criteriaFunctions);
+            let isPermitted = permitted();
+
+            chai.assert.strictEqual(isPermitted, undefined);
         });
     });
 });
