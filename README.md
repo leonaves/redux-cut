@@ -1,4 +1,4 @@
-# redux-cut
+# 🎬 Redux Cut
 Middleware to block redux actions based on provided criteria.
 
 ## What's it for?
