@@ -1,10 +1,14 @@
 {
   "name": "redux-cut",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Middleware to block redux actions based on provided criteria.",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha --compilers js:babel-register"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leonaves/redux-cut"
   },
   "keywords": [
     "redux",
