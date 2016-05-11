@@ -18,7 +18,7 @@ npm install redux-cut --save
 Import it:
 
 ```js
-import cut from 'redux-cut'; //or your module import syntax of choice
+import cut from 'redux-cut'; // Or your module import syntax of choice
 ```
 
 Then apply it to your store like so:
@@ -33,13 +33,11 @@ This signature will feel incredibly familiar to you if you if you have used Redu
 
 ```js
 const permitActions = (state, action) => {
-
     switch(action.type) {
         case 'DELETE_ALL_CUSTOMER_INFORMATION':
-            if ('manager' != state.currentUser.role) return false;
-            break;
+            return 'manager' === state.currentUser.role;
         case 'INSERT_NEW_RECORD':
-            if (state.records.entries.size() >= state.records.maxSize) return false;
+            return state.records.entries.size() <= state.records.maxSize;
     }
 };
 
