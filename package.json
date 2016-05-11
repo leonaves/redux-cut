@@ -1,6 +1,6 @@
 {
   "name": "redux-cut",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Middleware to block redux actions based on provided criteria.",
   "main": "dist/index.js",
   "scripts": {
