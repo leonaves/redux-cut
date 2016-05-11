@@ -80,8 +80,13 @@ You can listen for blocked actions by importing the avilable `isBlockedAction` f
 ```js
 import { isBlockedAction } from '../index';
 
-if (isBlockedAction(action)) {
-  return { modalVisible: true, message: 'Sorry you, can\'t do that!' }
+const initialState = { modalVisible: false };
+
+const modalReducer = (state = initialState, action) => { 
+    if (isBlockedAction(action)) {
+      return { modalVisible: true, message: 'Sorry you, can\'t do that!' }
+    }
+    return state
 }
 ```
 
